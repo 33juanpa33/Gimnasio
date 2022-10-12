@@ -12,10 +12,17 @@ h1 {
 }
 h2 {
     font-family: 'Poppins', sans-serif, 'arial';
-    font-weight: 900;
-    font-size: 72px;
+    font-weight: 400;
+    font-size: 20px;
     color: white;
-    text-align: center;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 6px;
+    border-color: white;
 }
 h4 {
     font-family: 'Roboto', sans-serif, 'arial';
@@ -24,7 +31,12 @@ h4 {
     color: #9b9b9b;
     line-height: 1.5;
 }
-
+th{
+    color: white;
+}
+td {
+    color: cornsilk;
+}
 /* ///// inputs /////*/
 
 input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {

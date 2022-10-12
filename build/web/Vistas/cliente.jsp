@@ -21,15 +21,12 @@
         <link rel="stylesheet" media="all" href="style.css" />
     </head>
     <body>
-        <%
-            Cliente cli = new Cliente(01,new Date(116, 5,3),"32135464","348646",new Date(116,0,3),"juan","alfonso","33356567","juanpa","3333");
-            
-        %>
-        <%="nombre: " + cli.getNombre() + " - apellido: " +  cli.getApellido() + " - privilegio: " +  cli.obtenerPrivilegio() + " - ultimo pago: " + cli.getPago() + "." %>
+        
         
         <div class="container">
             <div class="row">
                 <h1>Formulario de inscripción</h1>
+                <h2>Juan Pablo</h2>
             </div>
             <div class="row">
                 <h4 style="text-align:center">Cargar cliente</h4>
