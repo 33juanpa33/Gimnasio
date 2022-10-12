@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/web/Vistas/cliente.jsp</file>
+            <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/web/Vistas/style.css</file>
             <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/src/java/modelo/Profesor.java</file>
             <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/src/java/modelo/Cliente.java</file>
             <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/src/java/modelo/Persona.java</file>
             <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/src/java/modelo/Administrador.java</file>
+            <file>file:/C:/Users/Juan%20Pablo%20Alfonso/Documents/NetBeansProjects/Gimnasio/web/Vistas/listaClientes.jsp</file>
         </group>
     </open-files>
 </project-private>
