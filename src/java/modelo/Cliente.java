@@ -1,6 +1,8 @@
 package modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente extends Persona{
     private int idCliente;
@@ -8,6 +10,8 @@ public class Cliente extends Persona{
     private String telefono;
     private String telefonoE;
     private Date pago;
+    
+    private List<Actividad> listaActividades = new ArrayList<Actividad>();
 
     public Cliente() {
     }
@@ -64,6 +68,18 @@ public class Cliente extends Persona{
 
     public void setPago(Date pago) {
         this.pago = pago;
+    }
+
+    public List<Actividad> getListaActividades() {
+        return listaActividades;
+    }
+
+    public void setListaActividades(List<Actividad> listaActividades) {
+        this.listaActividades = listaActividades;
+    }
+    
+    public void agregarActividad(Actividad actividad) {
+        listaActividades.add(actividad);
     }
 
 }

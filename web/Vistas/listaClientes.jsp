@@ -4,6 +4,8 @@
     Author     : Juan Pablo Alfonso
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="modelo.Actividad"%>
 <%@page import="modelo.Cliente"%>
 <%@page import="java.sql.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,6 +43,7 @@
                         <th>Telefono</th>
                         <th>Tel. Em.</th>
                         <th>Ultimo Pago</th>
+                        <th>Actividades</th>
                         <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -52,7 +55,11 @@
                     --%>                    
 
                     <%
+                        Actividad actFuncional = new Actividad(01, "Funcional", 3000, 3200, 3500);
+                        Actividad actCrossfit = new Actividad(02, "Crossfit", 3100, 3300, 3600);
                         Cliente cli = new Cliente(01, new Date(116, 5, 3), "32135464", "348646", new Date(116, 0, 3), "juan", "alfonso", "33356567", "juanpa", "3333");
+                        cli.agregarActividad(actFuncional);
+                        cli.agregarActividad(actCrossfit);
 
                     %>
 
@@ -77,6 +84,13 @@
                         <td> <%=telefonoE%> </td>
                         <% Date pago = cli.getPago();%>
                         <td> <%=pago%> </td>
+                        <% List<Actividad> actividades = cli.getListaActividades();%>
+                        <td>
+                            <% for (Actividad act : actividades) { %>
+                            <%=act.getNombre() %>
+                            <br>
+                        <% } %>
+                        </td>
                         <td>
                             <form action="SvModificarCliente" method="POST" class="tm-contact-form">
                                 <input type="hidden" name="idCliente" value="<%=idCliente%>">
