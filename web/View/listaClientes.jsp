@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="modelo.Actividad"%>
-<%@page import="modelo.Cliente"%>
+<%@page import="model.Actividad"%>
+<%@page import="model.Cliente"%>
 <%@page import="java.sql.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>

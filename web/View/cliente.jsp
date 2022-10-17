@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.sql.Date"%>
-<%@page import="modelo.Cliente"%>
+<%@page import="model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if lte IE 9]>
@@ -17,7 +17,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Contact Us Form</title>
+        <title>Cargar Cliente</title>
         <link rel="stylesheet" media="all" href="style.css" />
     </head>
     <body>
@@ -26,12 +26,11 @@
         <div class="container">
             <div class="row">
                 <h1>Formulario de inscripción</h1>
-                <h2>Juan Pablo</h2>
             </div>
             <div class="row">
                 <h4 style="text-align:center">Cargar cliente</h4>
             </div>
-            <form action="action" class="row input-container">
+            <form action="SvCliente" method="POST" class="row input-container">
                 <%--
                 <div class="col-xs-12">
                                         <div class="styled-input wide">
@@ -87,6 +86,7 @@
                         <input type="text" name="clave"  required />
                         <label>Clave</label> 
                     </div>
+                </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
                         <input type="date" class="nacimiento" name="pago" required />
@@ -110,7 +110,7 @@
                 </div>
 --%>
                 <div class="col-xs-12">
-                    <div type="submit" class="btn-lrg submit-btn">Cargar cliente</div>
+                    <button type="submit" class="btn-lrg submit-btn">Cargar cliente</button>
                 </div>
             </form>
         </div>

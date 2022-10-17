@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 public class Administrador extends Persona{
     private int idAdministrador;
