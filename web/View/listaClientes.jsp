@@ -57,7 +57,7 @@
                     <%
                         Actividad actFuncional = new Actividad(01, "Funcional", 3000, 3200, 3500);
                         Actividad actCrossfit = new Actividad(02, "Crossfit", 3100, 3300, 3600);
-                        Cliente cli = new Cliente(01, new Date(116, 5, 3), "32135464", "348646", new Date(116, 0, 3), "juan", "alfonso", "33356567", "juanpa", "3333");
+                        Cliente cli = new Cliente(01, Date.valueOf("1988-01-06"), "32135464", "348646", new Date(116, 0, 3), "juan", "alfonso", "33356567", "juanpa", "3333");
                         cli.agregarActividad(actFuncional);
                         cli.agregarActividad(actCrossfit);
 
