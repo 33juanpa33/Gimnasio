@@ -35,8 +35,8 @@ public class SvCliente extends HttpServlet {
         String telefono;
         String telefonoE;
         Date pago;
-        ClienteDAO  cliente1 = new ClienteDAO();
-        for (Cliente cli : cliente1.getClientes()) {
+        ClienteDAO  clientes = new ClienteDAO();
+        for (Cliente cli : clientes.getClientes()) {
             System.out.println(cli.getNombre());
             System.out.println(cli.getNacimiento());
     }
