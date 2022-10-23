@@ -11,25 +11,27 @@ public class Cliente extends Persona{
     private String telefonoE;
     private Date pago;
     
-    private List<Actividad> listaActividades = new ArrayList<Actividad>();
-
+    //private List<Actividad> listaActividades = new ArrayList<Actividad>();
+    private int idActividad;
+    
     public Cliente() {
     }
 
-    public Cliente(int idCliente, Date nacimiento, String telefono, String telefonoE, Date pago, String nombre, String apellido, String documento, String usuario, String clave) {
+    public Cliente(int idCliente, Date nacimiento, String telefono, String telefonoE, Date pago, int idActividad, String nombre, String apellido, String documento, String usuario, String clave) {
         super(nombre, apellido, documento, usuario, clave);
         this.idCliente = idCliente;
         this.nacimiento = nacimiento;
         this.telefono = telefono;
         this.telefonoE = telefonoE;
         this.pago = pago;
+        this.idActividad = idActividad;
     }
 
     @Override
     public String obtenerPrivilegio() {
         return "cliente";
     }
-    
+
     public int getIdCliente() {
         return idCliente;
     }
@@ -70,6 +72,15 @@ public class Cliente extends Persona{
         this.pago = pago;
     }
 
+    public int getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
+    
+    /*
     public List<Actividad> getListaActividades() {
         return listaActividades;
     }
@@ -81,5 +92,5 @@ public class Cliente extends Persona{
     public void agregarActividad(Actividad actividad) {
         listaActividades.add(actividad);
     }
-
+    */
 }

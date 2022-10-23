@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cliente;
+import modeloDAO.ClienteDAO;
 
 @WebServlet(name = "SvCliente", urlPatterns = {"/View/SvCliente"})
 public class SvCliente extends HttpServlet {
@@ -33,10 +35,12 @@ public class SvCliente extends HttpServlet {
         String telefono;
         String telefonoE;
         Date pago;
-        System.out.println(nacimiento);
-        
+        ClienteDAO  cliente1 = new ClienteDAO();
+        for (Cliente cli : cliente1.getClientes()) {
+            System.out.println(cli.getNombre());
+            System.out.println(cli.getNacimiento());
     }
-
+    }
     @Override
     public String getServletInfo() {
         return "Short description";
