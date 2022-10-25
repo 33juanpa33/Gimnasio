@@ -9,13 +9,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cliente;
-import model.Persona;
 
 public class ClienteDAO implements IClienteDAO {
 
     @Override
     public List<Cliente> getClientes() {
-        List<Cliente> clientes = new ArrayList<Cliente>();
+        List<Cliente> clientes = new ArrayList<>();
         String sql = "Select * from cliente";
         try {
             PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
@@ -83,12 +82,28 @@ public class ClienteDAO implements IClienteDAO {
 
     @Override
     public int update(Cliente c) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        String sql = "update cliente set nacimiento=?, telefono=?, telefonoE=?, pago=?, nombre=?, apellido=?, documento=?, usuario=?, clave=?, Actividad_idActividad=? where idCliente=?";
+        try {
+            PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            resultado = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
     }
 
     @Override
     public int delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int resultado = 0;
+        String sql = "delete from cliente where idCliente=" + id;
+        try {
+            PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            resultado = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
     }
 
 }

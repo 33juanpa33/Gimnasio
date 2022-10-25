@@ -3,7 +3,7 @@
     Created on : 11 oct. 2022, 22:49:34
     Author     : Juan Pablo Alfonso
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <%@page import="model.Actividad"%>
 <%@page import="model.Cliente"%>
@@ -26,9 +26,11 @@
         <div class="container">
             <div class="row">
                 <h1>Lista de Clientes</h1>
+                
             </div>
             <div class="row">
                 <h4 style="text-align:center">(Edición o baja)</h4>
+                <a class="mostrar-btn" href="SvCliente?accion=listar">Mostrar</a>
             </div>
             <table>
                 <thead>
@@ -52,18 +54,36 @@
                     <%--                    <% HttpSession misession = request.getSession();                    
                                         List <Cliente> listaClientes = (List) misession.getAttribute("listaClientes");
                                         for (Cliente cli : listaClientes) { %>
-                    --%>                    
+                    --%>
+                    <c:forEach var="cliente" items="${Clientes}">
+                        <tr>
 
-                    <%
-                        Actividad actFuncional = new Actividad(01, "Funcional", 3000, 3200, 3500);
-                        Actividad actCrossfit = new Actividad(02, "Crossfit", 3100, 3300, 3600);
-                        Cliente cli = new Cliente(01, Date.valueOf("1988-01-06"), "32135464", "348646", new Date(116, 0, 3), "juan", "alfonso", "33356567", "juanpa", "3333");
-                        cli.agregarActividad(actFuncional);
-                        cli.agregarActividad(actCrossfit);
+                            <td> ${cliente.idCliente} </td>
+                            <td> ${cliente.nombre} </td>
+                            <td> ${cliente.apellido} </td>
+                            <td> ${cliente.documento} </td>
+                            <td> ${cliente.usuario} </td>
+                            <td> ${cliente.clave} </td>
+                            <td> ${cliente.nacimiento} </td>
+                            <td> ${cliente.telefono} </td>
+                            <td> ${cliente.telefonoE} </td>
+                            <td> ${cliente.pago} </td>
+                            <td> ${cliente.idActividad} </td>
+                            <td>
+                                <form action="SvModificarCliente" method="POST" class="tm-contact-form">
+                                    <input type="hidden" name="idCliente" value="${cliente.idCliente}">
+                                    <button type="submit" class="btn btn-primary btn-block btn-large" >Modificar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="SvEliminarCliente" method="POST" class="tm-contact-form">
+                                    <input type="hidden" name="idCliente" value="${cliente.idCliente}">
+                                    <button type="submit" class="btn btn-primary btn-block btn-large" >Eliminar</button>
+                                </form>
+                            </td>
 
-                    %>
 
-                    <tr>
+                            <%--
                         <% int idCliente = cli.getIdCliente();%>
                         <td> <%=idCliente%> </td>
                         <% String nombre = cli.getNombre();%>
@@ -91,19 +111,10 @@
                             <br>
                         <% } %>
                         </td>
-                        <td>
-                            <form action="SvModificarCliente" method="POST" class="tm-contact-form">
-                                <input type="hidden" name="idCliente" value="<%=idCliente%>">
-                                <button type="submit" class="btn btn-primary btn-block btn-large" >Modificar</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="SvEliminarCliente" method="POST" class="tm-contact-form">
-                                <input type="hidden" name="idCliente" value="<%=idCliente%>">
-                                <button type="submit" class="btn btn-primary btn-block btn-large" >Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
+                        
+                            --%>
+                        </tr>
+                    </c:forEach>
                     <%--
                     <%}%>
                     --%>
