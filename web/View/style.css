@@ -181,3 +181,27 @@ input[type=checkbox]:checked + label {
         text-align:center;
     }
 }
+.main-button {
+    text-align: center;
+  position: relative;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.main-button a {
+  display: inline-block;
+  font-size: 15px;
+  padding: 12px 20px;
+  background-color: #ed563b;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all .3s;
+  margin: 10px;
+}
+
+.main-button a:hover {
+  background-color: #f9735b;
+}

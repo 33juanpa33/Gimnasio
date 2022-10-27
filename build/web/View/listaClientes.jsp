@@ -26,11 +26,14 @@
         <div class="container">
             <div class="row">
                 <h1>Lista de Clientes</h1>
-                
+                <div class="main-button scroll-to-section">
+                    <h4 style="text-align:center">(Edición o baja)</h4>
+                    <a href="SvCliente?accion=nuevo">Nuevo Cliente</a>
+                    <a class="mostrar-btn" href="SvCliente?accion=listar">Mostrar Clientes</a>
+                </div>
             </div>
             <div class="row">
-                <h4 style="text-align:center">(Edición o baja)</h4>
-                <a class="mostrar-btn" href="SvCliente?accion=listar">Mostrar</a>
+                
             </div>
             <table>
                 <thead>

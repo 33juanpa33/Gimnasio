@@ -29,6 +29,9 @@ public class SvCliente extends HttpServlet {
                 request.setAttribute("Clientes", clientes);
                 request.getRequestDispatcher("/View/listaClientes.jsp").forward(request, response);
                 break;
+            case "nuevo":
+                request.getRequestDispatcher("cliente.jsp").forward(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
