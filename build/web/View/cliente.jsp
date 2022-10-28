@@ -28,7 +28,7 @@
                 <h1>Formulario de inscripción</h1>
             </div>
             <div class="row">
-                <h4 style="text-align:center">Cargar cliente</h4>
+                <h4 style="text-align:center">Cargar asociado</h4>
             </div>
             <form action="SvCliente" method="POST" class="row input-container">
                 <%--
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" name="clave"  required />
+                        <input type="password" name="clave"  required />
                         <label>Clave</label> 
                     </div>
                 </div>
@@ -91,6 +91,12 @@
                     <div class="styled-input">
                         <input type="date" class="nacimiento" name="pago" required />
                         <label>Ultimo Pago</label> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input" style="float:right;">
+                        <input type="number" name="idActividad"  required />
+                        <label>Actividad</label> 
                     </div>
                 </div>
 <%--                </div>
@@ -110,7 +116,10 @@
                 </div>
 --%>
                 <div class="col-xs-12">
-                    <button type="submit" class="btn-lrg submit-btn">Cargar cliente</button>
+                    <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar cliente</button>
+                </div>
+                <div class="col-xs-12">
+                    <a href="SvCliente?accion=listar">Listar asociados</a>
                 </div>
             </form>
         </div>

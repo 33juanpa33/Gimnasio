@@ -29,13 +29,11 @@
                 <div class="main-button scroll-to-section">
                     <h4 style="text-align:center">(Edición o baja)</h4>
                     <a href="SvCliente?accion=nuevo">Nuevo Cliente</a>
-                    <a class="mostrar-btn" href="SvCliente?accion=listar">Mostrar Clientes</a>
+                    <a href="SvCliente?accion=listar">Mostrar Clientes</a>
                 </div>
             </div>
             <div class="row">
-                
-            </div>
-            <table>
+                <table>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -124,6 +122,8 @@
                 </tbody>
 
             </table>
+            </div>
+            
         </div>
     </body>
 </html>

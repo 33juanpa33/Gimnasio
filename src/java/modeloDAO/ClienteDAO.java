@@ -73,6 +73,17 @@ public class ClienteDAO implements IClienteDAO {
         String sql = "insert into cliente (nacimiento, telefono, telefonoE, pago, nombre, apellido, documento, usuario, clave, Actividad_idActividad) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            ps.setDate(1, c.getNacimiento());
+            ps.setString(2, c.getTelefono());
+            ps.setString(3, c.getTelefonoE());
+            ps.setDate(4, c.getPago());
+            ps.setString(5, c.getNombre());
+            ps.setString(6, c.getApellido());
+            ps.setString(7, c.getDocumento());
+            ps.setString(8, c.getUsuario());
+            ps.setString(9, c.getClave());
+            ps.setInt(10, c.getIdActividad());
+            
             resultado = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
