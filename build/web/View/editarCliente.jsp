@@ -1,128 +1,94 @@
 <%-- 
-    Document   : index
-    Created on : 8 oct. 2022, 15:25:01
-    Author     : Juan Pablo Alfonso
+    Document   : editarCliente
+    Created on : 28 oct. 2022, 21:12:12
+    Author     : JuanPa
 --%>
 
-<%@page import="java.sql.Date"%>
-<%@page import="model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!doctype html>
-<!--[if lte IE 9]>
-<html lang="en" class="oldie">
-<![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="es">
-    <!--<![endif]-->
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cargar Cliente</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Actualizar Cliente</title>
         <link rel="stylesheet" media="all" href="style.css" />
     </head>
     <body>
-        
-        
         <div class="container">
             <div class="row">
-                <h1>Formulario de inscripción</h1>
+                <h1>Formulario de actualización</h1>
             </div>
             <div class="row">
-                <h4 style="text-align:center">Cargar cliente</h4>
+                <h4 style="text-align:center">Modificar cliente</h4>
             </div>
             <form action="SvCliente" method="POST" class="row input-container">
-                <%--
-                <div class="col-xs-12">
-                                        <div class="styled-input wide">
-                                            <input type="text"  required />
-                                            <label>Nombre</label> 
-                                        </div>
-                                    </div>
-                --%>
+                <input type="number" hidden name="idCliente" value="${cliente.idCliente}" required />
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" name="nombre" required />
+                        <input type="text" name="nombre" value="${cliente.nombre}" required />
                         <label>Nombre</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" name="apellido" required />
+                        <input type="text" name="apellido" value="${cliente.apellido}" required />
                         <label>Apellido</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="date" class="nacimiento" name="nacimiento" required />
+                        <input type="date" class="nacimiento" name="nacimiento" value="${cliente.nacimiento}" required />
                         <label>Fecha de nacimiento</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" name="documento" required />
+                        <input type="text" name="documento" value="${cliente.documento}" required />
                         <label>Documento</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" name="telefono" required />
+                        <input type="text" name="telefono" value="${cliente.telefono}" required />
                         <label>Teléfono</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="text" name="telefonoE"  required />
+                        <input type="text" name="telefonoE" value="${cliente.telefonoE}" required />
                         <label>Tel. emergencia</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" name="usuario" required />
+                        <input type="text" name="usuario" value="${cliente.usuario}" required />
                         <label>Usuario</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="password" name="clave"  required />
+                        <input type="text" name="clave" value="${cliente.clave}" required />
                         <label>Clave</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="date" class="nacimiento" name="pago" required />
+                        <input type="date" class="nacimiento" name="pago" value="${cliente.pago}" required />
                         <label>Ultimo Pago</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="number" name="idActividad"  required />
+                        <input type="number" name="idActividad" value="${cliente.idActividad}" required />
                         <label>Actividad</label> 
                     </div>
                 </div>
-<%--                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="styled-input">
-                        <input type="checkbox" name="pago" required />
-                        <label>Mes pago</label> 
-                    </div>
-                </div>
---%>                
-<%--
                 <div class="col-xs-12">
-                    <div class="styled-input wide">
-                        <textarea required></textarea>
-                        <label>Message</label>
-                    </div>
-                </div>
---%>
-                <div class="col-xs-12">
-                    <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar cliente</button>
+                    <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
                 </div>
                 <div class="col-xs-12">
                     <a href="SvCliente?accion=listar">Listar clientes</a>
                 </div>
             </form>
         </div>
-
     </body>
 </html>

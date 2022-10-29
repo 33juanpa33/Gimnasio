@@ -67,6 +67,53 @@ public class SvCliente extends HttpServlet {
                     request.setAttribute("mensaje", "Hubo un error al almacenar");
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
+                break;
+            case "editar":
+                int id = parseInt(request.getParameter("idCliente"));
+                dao = new ClienteDAO();
+                Cliente cl = dao.getId(id);
+                System.out.println(cl.getNombre());
+                System.out.println(id);
+                request.setAttribute("cliente", cl);
+                request.getRequestDispatcher("editarCliente.jsp").forward(request, response);
+                break;
+            case "actualizar":
+                Date nacimiento1 = Date.valueOf(request.getParameter("nacimiento"));
+                String telefono1 = request.getParameter("telefono");
+                String telefonoE1 = request.getParameter("telefonoE");
+                Date pago1 = Date.valueOf(request.getParameter("pago"));
+                int idActividad1 = parseInt(request.getParameter("idActividad"));
+                String nombre1 = request.getParameter("nombre");
+                String apellido1 = request.getParameter("apellido");
+                String documento1 = request.getParameter("documento");
+                String usuario1 = request.getParameter("usuario");
+                String clave1 = request.getParameter("clave");
+                int idCliente1 = parseInt(request.getParameter("idCliente"));
+                Cliente cli = new Cliente(idCliente1, nacimiento1, telefono1, telefonoE1, pago1, idActividad1, nombre1, apellido1, documento1, usuario1, clave1);
+                int respuesta = dao.update(cli);
+                if (respuesta!=0) {
+                    request.setAttribute("config", "alert alert-success");
+                    request.setAttribute("mensaje", "Modificado satisfactoriamente!");
+                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("config", "alert alert-danger");
+                    request.setAttribute("mensaje", "Hubo un error al modificar");
+                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                }
+                break;
+            case "eliminar":
+                int idCliente = parseInt(request.getParameter("idCliente"));
+                int res = dao.delete(idCliente);
+                if (res!=0) {
+                    request.setAttribute("config", "alert alert-warning");
+                    request.setAttribute("mensaje", "Se eliminó satisfactoriamente el cliente!");
+                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("config", "alert alert-danger");
+                    request.setAttribute("mensaje", "Hubo un error al eliminar");
+                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                }
+                break;
             default:
                 throw new AssertionError();
         }

@@ -28,7 +28,7 @@
                 <h1>Formulario de inscripción</h1>
             </div>
             <div class="row">
-                <h4 style="text-align:center">Cargar asociado</h4>
+                <h4 style="text-align:center">Cargar cliente</h4>
             </div>
             <form action="SvCliente" method="POST" class="row input-container">
                 <%--
@@ -119,7 +119,7 @@
                     <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar cliente</button>
                 </div>
                 <div class="col-xs-12">
-                    <a href="SvCliente?accion=listar">Listar asociados</a>
+                    <a href="SvCliente?accion=listar">Listar clientes</a>
                 </div>
             </form>
         </div>

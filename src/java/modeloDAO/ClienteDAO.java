@@ -42,7 +42,7 @@ public class ClienteDAO implements IClienteDAO {
 
     @Override
     public Cliente getId(int id) {
-        String sql = "select * from persona where idCliente =?";
+        String sql = "select * from cliente where idCliente =?";
         Cliente cl = new Cliente();
         try {
             PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
@@ -97,6 +97,17 @@ public class ClienteDAO implements IClienteDAO {
         String sql = "update cliente set nacimiento=?, telefono=?, telefonoE=?, pago=?, nombre=?, apellido=?, documento=?, usuario=?, clave=?, Actividad_idActividad=? where idCliente=?";
         try {
             PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            ps.setDate(1, c.getNacimiento());
+            ps.setString(2, c.getTelefono());
+            ps.setString(3, c.getTelefonoE());
+            ps.setDate(4, c.getPago());
+            ps.setString(5, c.getNombre());
+            ps.setString(6, c.getApellido());
+            ps.setString(7, c.getDocumento());
+            ps.setString(8, c.getUsuario());
+            ps.setString(9, c.getClave());
+            ps.setInt(10, c.getIdActividad());
+            ps.setInt(11, c.getIdCliente());
             resultado = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
