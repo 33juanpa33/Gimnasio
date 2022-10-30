@@ -18,6 +18,8 @@
                 ${mensaje}!
             </div>
             <a href="SvCliente?accion=listar">Listar los clientes</a>
+            <br>
+            <a href="SvActividad?accion=listar">Listar las actividades</a>
         </div>
     </body>
 </html>

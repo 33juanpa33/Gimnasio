@@ -4,18 +4,19 @@
     Author     : JuanPa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualizar Cliente</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h1>Formulario de actualizaciÃ³n</h1>
+                <h1>Formulario de actualización</h1>
             </div>
             <div class="row">
                 <h4 style="text-align:center">Modificar cliente</h4>
@@ -49,7 +50,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
                         <input type="text" name="telefono" value="${cliente.telefono}" required />
-                        <label>TelÃ©fono</label> 
+                        <label>Teléfono</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -85,10 +86,18 @@
                 <div class="col-xs-12">
                     <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
                 </div>
-                <div class="col-xs-12">
-                    <a href="SvCliente?accion=listar">Listar clientes</a>
-                </div>
+
             </form>
+            <div class="row">
+                <a class="btn-lrg submit-btn" href="SvCliente?accion=listar">Listar clientes</a>
+            </div>
         </div>
+        <footer class="row mt-4">
+            <p class="mb-0 w-100 text-center col-12">
+                &copy; ISFDyT N°166 2022 
+
+                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+            </p>
+        </footer>
     </body>
 </html>

@@ -62,7 +62,7 @@ public class SvCliente extends HttpServlet {
                     request.getRequestDispatcher("SvCliente?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
-                    request.setAttribute("mensaje", "Hubo un error al almacenar");
+                    request.setAttribute("mensaje", "Hubo un error al almacenar, es posible que el usuario ya exista");
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
                 break;
@@ -93,7 +93,7 @@ public class SvCliente extends HttpServlet {
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
-                    request.setAttribute("mensaje", "Hubo un error al modificar");
+                    request.setAttribute("mensaje", "Hubo un error al modificar, es posible que el usuario ya exista");
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
                 break;

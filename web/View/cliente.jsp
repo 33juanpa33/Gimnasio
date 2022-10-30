@@ -6,7 +6,7 @@
 
 <%@page import="java.sql.Date"%>
 <%@page import="model.Cliente"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if lte IE 9]>
 <html lang="en" class="oldie">
@@ -25,7 +25,7 @@
         
         <div class="container">
             <div class="row">
-                <h1>Formulario de inscripciÃ³n</h1>
+                <h1>Formulario de inscripción</h1>
             </div>
             <div class="row">
                 <h4 style="text-align:center">Cargar cliente</h4>
@@ -66,7 +66,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
                         <input type="text" name="telefono" required />
-                        <label>TelÃ©fono</label> 
+                        <label>Teléfono</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">

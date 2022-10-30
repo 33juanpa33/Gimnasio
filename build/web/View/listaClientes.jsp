@@ -8,7 +8,7 @@
 <%@page import="model.Actividad"%>
 <%@page import="model.Cliente"%>
 <%@page import="java.sql.Date"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if lte IE 9]>
 <html lang="en" class="oldie">
@@ -27,7 +27,7 @@
             <div class="row">
                 <h1>Lista de Clientes</h1>
                 <div class="main-button scroll-to-section">
-                    <h4 style="text-align:center">(EdiciÃ³n o baja)</h4>
+                    <h4 style="text-align:center">(Edición o baja)</h4>
                     <a href="SvCliente?accion=nuevo">Nuevo Cliente</a>
                     <a href="SvCliente?accion=listar">Mostrar Clientes</a>
                 </div>
@@ -122,7 +122,7 @@
         <script>
             function asegurar()
             {
-                return confirm("Â¿Seguro que desea Eliminar?");
+                return confirm("¿Seguro que desea Eliminar?");
             }
         </script>
     </body>

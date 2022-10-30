@@ -4,6 +4,7 @@
     Author     : JuanPa
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,6 +32,7 @@
                         </div>
                         <div class="section-heading dark-bg">
                             <h2>Precios</h2>
+                            <a href="SvActividad?accion=listar">Mostrar Actividades</a>
                         </div>
                     </div>
                 </div>
@@ -48,16 +50,27 @@
                                         <td class="day-time">Precio 9 clases</td>
                                         <td class="day-time">Precio 14 clases</td>
                                         <td class="day-time">Precio clases libre</td>
-                                        <td>Acción</td>
+                                        <td>Modificar</td>
+                                        <td>Eliminar</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="day-time">Fitness Class</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">10:00AM - 11:30AM</td>
-                                        <td class="tuesday ts-item" data-tsmeta="tuesday">2:00PM - 3:30PM</td>
-                                        <td>William G. Stewart</td>
-                                    </tr>
+                                    <c:forEach var="actividad" items="${Actividades}">
+                                        <c:if test="${actividad.disponible}" >
+                                            <tr>
+                                                <td class="day-time"> ${actividad.nombre} </td>
+                                                <td class="day-time"> ${actividad.precio9Clases} </td>
+                                                <td class="day-time"> ${actividad.precio14Clases} </td>
+                                                <td class="day-time"> ${actividad.precioClasesLibre} </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=editar&idActividad=${actividad.idActividad}">Modificar</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=eliminar&idActividad=${actividad.idActividad}" onclick="javascript:return asegurar();">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -120,6 +133,12 @@
                 </div>
             </div>
         </section>
+        <script>
+            function asegurar()
+            {
+                return confirm("¿Seguro que desea Eliminar?");
+            }
+        </script>
 
         <!-- jQuery -->
         <script src="assets/js/jquery-2.1.0.min.js"></script>

@@ -99,7 +99,7 @@ public class ActividadDAO implements IActividadDAO {
     @Override
     public int delete(int id) {
         int resultado = 0;
-        String sql = "delete from actividad where idActividad = " + id;
+        String sql = "update actividad set disponible=0 where idActividad = " + id;
         try {
             PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
             resultado = ps.executeUpdate();
