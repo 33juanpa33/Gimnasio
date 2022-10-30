@@ -6,29 +6,23 @@ public class Actividad {
     private int precio9Clases;
     private int precio14Clases;
     private int precioClasesLibre;
+    private boolean disponible;
 
     public Actividad() {
     }
 
-    public Actividad(int idActividad, String nombre, int precio9Clases, int precio14Clases, int precioClasesLibre) {
+    public Actividad(int idActividad, String nombre, int precio9Clases, int precio14Clases, int precioClasesLibre, boolean disponible) {
         this.idActividad = idActividad;
         this.nombre = nombre;
         this.precio9Clases = precio9Clases;
         this.precio14Clases = precio14Clases;
         this.precioClasesLibre = precioClasesLibre;
+        this.disponible = disponible;
     }
-
+    
     @Override
     public String toString() {
         return "Actividad{" + "idActividad=" + idActividad + ", nombre=" + nombre + ", precio9Clases=" + precio9Clases + ", precio14Clases=" + precio14Clases + ", precioClasesLibre=" + precioClasesLibre + '}';
-    }
-
-    public int getidActividad() {
-        return idActividad;
-    }
-
-    public void setidActividad(int idActividad) {
-        this.idActividad = idActividad;
     }
 
     public String getNombre() {
@@ -62,6 +56,26 @@ public class Actividad {
     public void setPrecioClasesLibre(int precioClasesLibre) {
         this.precioClasesLibre = precioClasesLibre;
     }
+
+    public int getIdActividad() {
+        return idActividad;
+    }
+
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
     
+    public boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
     
 }

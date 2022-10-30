@@ -18,7 +18,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cargar Cliente</title>
-        <link rel="stylesheet" media="all" href="style.css" />
+        <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
         

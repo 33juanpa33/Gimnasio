@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualizar Cliente</title>
-        <link rel="stylesheet" media="all" href="style.css" />
+        <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
         <div class="container">

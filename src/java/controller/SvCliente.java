@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import modeloDAO.ClienteDAO;
-import modeloDAO.IClienteDAO;
 
 @WebServlet(name = "SvCliente", urlPatterns = {"/View/SvCliente"})
 public class SvCliente extends HttpServlet {
@@ -72,8 +70,6 @@ public class SvCliente extends HttpServlet {
                 int id = parseInt(request.getParameter("idCliente"));
                 dao = new ClienteDAO();
                 Cliente cl = dao.getId(id);
-                System.out.println(cl.getNombre());
-                System.out.println(id);
                 request.setAttribute("cliente", cl);
                 request.getRequestDispatcher("editarCliente.jsp").forward(request, response);
                 break;

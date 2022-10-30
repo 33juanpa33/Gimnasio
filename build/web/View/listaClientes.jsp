@@ -20,7 +20,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lista de Clientes</title>
-        <link rel="stylesheet" media="all" href="style.css" />
+        <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
         <div class="container">
@@ -32,7 +32,7 @@
                     <a href="SvCliente?accion=listar">Mostrar Clientes</a>
                 </div>
             </div>
-            <div class="row">
+            <div class="row tabla">
                 <table>
                     <thead>
                         <tr>
@@ -74,7 +74,7 @@
                                     <a class="btn btn-primary btn-block btn-large" href="SvCliente?accion=editar&idCliente=${cliente.idCliente}">Modificar</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-block btn-large" href="SvCliente?accion=eliminar&idCliente=${cliente.idCliente}">Eliminar</a>
+                                    <a class="btn btn-primary btn-block btn-large" href="SvCliente?accion=eliminar&idCliente=${cliente.idCliente}" onclick="javascript:return asegurar();">Eliminar</a>
                                 </td>
 
 
@@ -119,5 +119,11 @@
             </div>
 
         </div>
+        <script>
+            function asegurar()
+            {
+                return confirm("¿Seguro que desea Eliminar?");
+            }
+        </script>
     </body>
 </html>
