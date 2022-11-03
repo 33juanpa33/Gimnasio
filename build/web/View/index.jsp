@@ -5,10 +5,16 @@
 --%>
 
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
+        %>
         <title>Gimnasio</title>
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -40,10 +46,10 @@
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
                                 <!-- <li class="scroll-to-section"><a href="#top" class="active">Home</a></li> -->
-                                <li class="main-button"><a href="#">Iniciar Sesión</a></li>
+                                <li class="main-button"><a href="#" onclick="cargarLogin()">Iniciar Sesión</a></li>
                             </ul>
                             <ul class="nav">
-                                <li class="main-button"><a href="#">Ver Actividades</a></li>
+                                <li class="main-button"><a href="SvActividad?accion=listarEnLogin" href="#schedule">Ver Actividades</a></li>
                             </ul>
                             <!-- ***** Menu End ***** -->
                         </nav>
@@ -53,51 +59,9 @@
         </header>
         <!-- ***** Header Area End ***** -->
 
+        <section id="contenidoDinamico"></section>
         <!-- ***** Main Banner Area Start ***** -->
-        <div class="main-banner" id="top">
-            <video autoplay muted loop id="bg-video">
-                <source src="assets/images/gym-video.mp4" type="video/mp4" />
-            </video>
-
-            <div class="video-overlay header-text">
-                <div class="caption">
-                    <h2>Bienvenido</h2>
-                    
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-xs-12">
-                                    <div class="contact-form">
-                                        <form id="contact" action="" method="post">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <fieldset>
-                                                        <input name="usuario" type="text" id="name" placeholder="Tu Usuario*" required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-md-6 col-sm-12">
-                                                    <fieldset>
-                                                        <input name="clave" type="text" id="email" placeholder="Tu Clave*" required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <fieldset>
-                                                        <button type="submit" id="form-submit" class="main-button scroll-to-section">Ingresar</button>
-                                                    </fieldset>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--
-                    <div class="main-button scroll-to-section">
-                        <a href="#features">Become a member</a>
-                    </div>
-                    -->
-                </div>
-            </div>
-        </div>
+        
         
         <section class="section" id="schedule">
             <div class="container">
@@ -109,7 +73,6 @@
                         </div>
                         <div class="section-heading dark-bg">
                             <h2>Precios</h2>
-                            <a href="SvActividad?accion=listar">Mostrar Actividades</a>
                         </div>
                     </div>
                 </div>
@@ -127,8 +90,6 @@
                                         <td class="day-time">Precio 9 clases</td>
                                         <td class="day-time">Precio 14 clases</td>
                                         <td class="day-time">Precio clases libre</td>
-                                        <td>Modificar</td>
-                                        <td>Eliminar</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -139,12 +100,6 @@
                                                 <td class="day-time"> ${actividad.precio9Clases} </td>
                                                 <td class="day-time"> ${actividad.precio14Clases} </td>
                                                 <td class="day-time"> ${actividad.precioClasesLibre} </td>
-                                                <td>
-                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=editar&idActividad=${actividad.idActividad}">Modificar</a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=eliminar&idActividad=${actividad.idActividad}" onclick="javascript:return asegurar();">Eliminar</a>
-                                                </td>
                                             </tr>
                                         </c:if>
                                     </c:forEach>
@@ -211,7 +166,7 @@
             </div>
         </section>
         
-        
+        <script src="assets/js/indexDinamico.js"></script>
         <!-- jQuery -->
         <script src="assets/js/jquery-2.1.0.min.js"></script>
 

@@ -28,6 +28,12 @@ public class SvActividad extends HttpServlet {
                 request.setAttribute("Actividades", actividades);
                 request.getRequestDispatcher("/View/listaActividades.jsp").forward(request, response);
                 break;
+            case "listarEnLogin":
+                dao = new ActividadDAO();
+                actividades = dao.getActividades();
+                request.setAttribute("Actividades", actividades);
+                request.getRequestDispatcher("/View/index.jsp").forward(request, response);
+                break;
             case "nuevo":
                 request.getRequestDispatcher("actividad.jsp").forward(request, response);
                 break;
