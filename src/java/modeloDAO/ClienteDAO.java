@@ -127,5 +127,32 @@ public class ClienteDAO implements IClienteDAO {
         }
         return resultado;
     }
+    
+    public Cliente login(String usuario, String clave) {
+        String sql = "select * from cliente where usuario = ? AND clave = ?";
+        Cliente cl = new Cliente();
+        try {
+            PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, clave);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cl.setIdCliente(rs.getInt(1));
+                cl.setNacimiento(rs.getDate(2));
+                cl.setTelefono(rs.getString(3));
+                cl.setTelefonoE(rs.getString(4));
+                cl.setPago(rs.getDate(5));
+                cl.setNombre(rs.getString(6));
+                cl.setApellido(rs.getString(7));
+                cl.setDocumento(rs.getString(8));
+                cl.setUsuario(rs.getString(9));
+                cl.setClave(rs.getString(10));
+                cl.setIdActividad(rs.getInt(11));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cl;
+    }
 
 }

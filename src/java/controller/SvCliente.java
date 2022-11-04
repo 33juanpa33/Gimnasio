@@ -110,6 +110,14 @@ public class SvCliente extends HttpServlet {
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
                 break;
+            case "loguear":
+                String usuarioLog = request.getParameter("usuario");
+                String claveLog = request.getParameter("clave");
+                dao = new ClienteDAO();
+                Cliente clienteLog = dao.login(usuarioLog, claveLog);
+                request.setAttribute("clienteLog", clienteLog);
+                request.getRequestDispatcher("panelCliente.jsp").forward(request, response);
+                break;
             default:
                 throw new AssertionError();
         }

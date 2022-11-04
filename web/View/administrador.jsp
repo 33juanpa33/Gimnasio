@@ -1,59 +1,69 @@
 <%-- 
-    Document   : editarActividad
-    Created on : 30 oct. 2022, 16:16:11
+    Document   : administrador
+    Created on : 3 nov. 2022, 23:53:38
     Author     : JuanPa
 --%>
-
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Actualizar Actividad</title>
+        <title>Cargar Administrador</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h1>Formulario de actualización</h1>
+                <h1>Formulario de inscripción</h1>
             </div>
             <div class="row">
-                <h4 style="text-align:center">Modificar actividad</h4>
+                <h4 style="text-align:center">Cargar cliente</h4>
             </div>
-            <form action="SvActividad" method="POST" class="row input-container">
-                <input type="number" hidden name="idActividad" value="${actividad.idActividad}" required />
+            <form action="SvAdministrador" method="POST" class="row input-container">
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="text" name="nombre" value="${actividad.nombre}" required />
+                        <input type="text" name="nombre" required />
                         <label>Nombre</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="number" name="precio9Clases" value="${actividad.precio9Clases}" required />
-                        <label>Precio por 9 clases</label> 
+                        <input type="text" name="apellido" required />
+                        <label>Apellido</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="number" name="precio14Clases" value="${actividad.precio14Clases}" required />
-                        <label>Precio por 14 clases</label> 
+                        <input type="text" name="documento" required />
+                        <label>Documento</label> 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="number" name="precioClasesLibre" value="${actividad.precioClasesLibre}" required />
-                        <label>Precio por clases libre</label> 
+                        <input type="text" name="cargo" required />
+                        <label>Cargo</label> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input">
+                        <input type="text" name="usuario" required />
+                        <label>Usuario</label> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input" style="float:right;">
+                        <input type="password" name="clave"  required />
+                        <label>Clave</label> 
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar actividad</button>
+                    <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar administrador</button>
                 </div>
 
             </form>
             <div class="col-xs-12">
-                <a href="SvActividad?accion=listar" class="btn-lrg submit-btn">Listar actividades</a>
+                <a href="SvAdministrador?accion=listar" class="btn-lrg submit-btn">Listar administradores</a>
             </div>
         </div>
         <footer class="mt-4">

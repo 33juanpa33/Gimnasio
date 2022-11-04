@@ -8,3 +8,7 @@ function cargarElementoDinamico(url, elemento) {
 function cargarLogin() {
     cargarElementoDinamico("login.jsp", document.getElementById("contenidoDinamico"));
 }
+
+function cargarLoginCliente() {
+    cargarElementoDinamico("loginCliente.jsp", document.getElementById("contenidoDinamico"));
+}

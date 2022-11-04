@@ -18,11 +18,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Cargar Cliente</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
-        
-        
+
+
         <div class="container">
             <div class="row">
                 <h1>Formulario de inscripción</h1>
@@ -99,30 +100,38 @@
                         <label>Actividad</label> 
                     </div>
                 </div>
-<%--                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="styled-input">
-                        <input type="checkbox" name="pago" required />
-                        <label>Mes pago</label> 
-                    </div>
-                </div>
---%>                
-<%--
-                <div class="col-xs-12">
-                    <div class="styled-input wide">
-                        <textarea required></textarea>
-                        <label>Message</label>
-                    </div>
-                </div>
---%>
+                <%--                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="styled-input">
+                                        <input type="checkbox" name="pago" required />
+                                        <label>Mes pago</label> 
+                                    </div>
+                                </div>
+                --%>                
+                <%--
+                                <div class="col-xs-12">
+                                    <div class="styled-input wide">
+                                        <textarea required></textarea>
+                                        <label>Message</label>
+                                    </div>
+                                </div>
+                --%>
                 <div class="col-xs-12">
                     <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar cliente</button>
                 </div>
-                <div class="col-xs-12">
-                    <a href="SvCliente?accion=listar">Listar clientes</a>
-                </div>
+
             </form>
+            <div class="col-xs-12">
+                <a href="SvCliente?accion=listar" class="btn-lrg submit-btn">Listar clientes</a>
+            </div>
         </div>
+                <footer class="mt-4">
+            <p class="mb-0 w-100 text-center col-12">
+                &copy; ISFDyT N°166 2022 
+
+                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+            </p>
+        </footer>
 
     </body>
 </html>

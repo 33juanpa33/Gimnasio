@@ -133,6 +133,13 @@
                 </div>
             </div>
         </section>
+        <footer class="mt-4">
+            <p class="mb-0 w-100 text-center col-12">
+                &copy; ISFDyT N°166 2022 
+
+                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+            </p>
+        </footer>
         <script>
             function asegurar()
             {

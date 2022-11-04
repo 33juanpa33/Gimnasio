@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 3 nov. 2022, 00:59:34
+    Document   : loginCliente
+    Created on : 4 nov. 2022, 01:48:59
     Author     : JuanPa
 --%>
 
@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-xs-12">
                                 <div class="contact-form">
-                                    <form id="contact" action="SvAdministrador" method="POST">
+                                    <form id="contact" action="SvCliente" method="POST">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
@@ -39,7 +39,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset>
-                                                    <button type="submit" value="loguear" name="accion" id="form-submit" class="main-button scroll-to-section">Ingresar Como Administrador</button>
+                                                    <button type="submit" value="loguear" name="accion" id="form-submit" class="main-button scroll-to-section">Ingresar Como Cliente</button>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -48,11 +48,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div class="main-button scroll-to-section">
-                        <a href="#features">Become a member</a>
-                    </div>
-                    -->
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Administrador;
 import modeloDAO.AdministradorDAO;
 
@@ -20,6 +21,8 @@ public class SvAdministrador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        HttpSession sesion = request.getSession();
         String accion = request.getParameter("accion");
         List<Administrador> administradores = new ArrayList<>();
         switch (accion) {
@@ -52,7 +55,7 @@ public class SvAdministrador extends HttpServlet {
                 if (r!=0) {
                     request.setAttribute("config", "alert alert-success");
                     request.setAttribute("mensaje", "Agregado satisfactoriamente!");
-                    request.getRequestDispatcher("SvAdministrador?accion=listar").forward(request, response);
+                    request.getRequestDispatcher("/View/panelAdministrador.jsp").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al almacenar, es posible que el usuario ya exista");
@@ -98,6 +101,15 @@ public class SvAdministrador extends HttpServlet {
                     request.setAttribute("mensaje", "Hubo un error al eliminar");
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
+                break;
+            case "loguear":
+                String usuarioLog = request.getParameter("usuario");
+                String claveLog = request.getParameter("clave");
+                dao = new AdministradorDAO();
+                Administrador administradorLog = dao.login(usuarioLog, claveLog);
+                request.setAttribute("administradorLog", administradorLog);
+                sesion.setAttribute("usuarioLogueado", administradorLog);
+                request.getRequestDispatcher("panelAdministrador.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();

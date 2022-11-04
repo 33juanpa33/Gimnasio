@@ -112,4 +112,26 @@ public class AdministradorDAO implements IAdministradorDAO {
         return resultado;
     }
     
+    public Administrador login(String usuario, String clave) {
+        String sql = "select * from administrador where usuario = ? AND clave = ?";
+        Administrador ad = new Administrador();
+        try {
+            PreparedStatement ps = Conexion.Conectar().prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, clave);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ad.setIdAdministrador(rs.getInt(1));
+                ad.setCargo(rs.getString(2));
+                ad.setNombre(rs.getString(3));
+                ad.setApellido(rs.getString(4));
+                ad.setDocumento(rs.getString(5));
+                ad.setUsuario(rs.getString(6));
+                ad.setClave(rs.getString(7));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ad;
+    }
 }

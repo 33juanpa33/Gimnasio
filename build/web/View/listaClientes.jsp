@@ -25,6 +25,7 @@
             response.setDateHeader("Expires", 0);
         %>
         <title>Lista de Clientes</title>
+
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
@@ -124,6 +125,13 @@
             </div>
 
         </div>
+        <footer class="mt-4" style="display: flex; justify-content: center">
+            <p class="mb-0 w-100 text-center col-12">
+                &copy; ISFDyT N°166 2022 
+
+                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+            </p>
+        </footer>
         <script>
             function asegurar()
             {

@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualizar Actividad</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
@@ -49,10 +50,18 @@
                 <div class="col-xs-12">
                     <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar actividad</button>
                 </div>
-                <div class="col-xs-12">
-                    <a href="SvActividad?accion=listar">Listar actividades</a>
-                </div>
+
             </form>
+            <div class="col-xs-12">
+                <a href="SvActividad?accion=listar" class="btn-lrg submit-btn">Listar actividades</a>
+            </div>
         </div>
+        <footer class="mt-4">
+            <p class="mb-0 w-100 text-center col-12">
+                &copy; ISFDyT N°166 2022 
+
+                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+            </p>
+        </footer>
     </body>
 </html>
