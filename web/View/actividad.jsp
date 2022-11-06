@@ -61,7 +61,7 @@
                 
             </form>
             <div class="col-xs-12">
-                    <a href="SvActividad?accion=listar" class="btn-lrg submit-btn">Listar actividades</a>
+                    <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
                 </div>
         </div>
         <footer class="mt-4">

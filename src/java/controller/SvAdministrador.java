@@ -53,9 +53,7 @@ public class SvAdministrador extends HttpServlet {
                 c.setClave(clave);
                 r = dao.add(c);
                 if (r!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Agregado satisfactoriamente!");
-                    request.getRequestDispatcher("/View/panelAdministrador.jsp").forward(request, response);
+                    request.getRequestDispatcher("panelAdministrador.jsp").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al almacenar, es posible que el usuario ya exista");
@@ -80,9 +78,7 @@ public class SvAdministrador extends HttpServlet {
                 Administrador adm = new Administrador(idAdministrador1, cargo1, nombre1, apellido1, documento1, usuario1, clave1);
                 int respuesta = dao.update(adm);
                 if (respuesta!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Modificado satisfactoriamente!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    request.getRequestDispatcher("panelAdministrador.jsp").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al modificar, es posible que el usuario ya exista");
@@ -93,9 +89,7 @@ public class SvAdministrador extends HttpServlet {
                 int idAdministrador = parseInt(request.getParameter("idAdministrador"));
                 int res = dao.delete(idAdministrador);
                 if (res!=0) {
-                    request.setAttribute("config", "alert alert-warning");
-                    request.setAttribute("mensaje", "Se eliminó satisfactoriamente el administrador!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    request.getRequestDispatcher("panelAdministrador.jsp").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al eliminar");
@@ -107,9 +101,27 @@ public class SvAdministrador extends HttpServlet {
                 String claveLog = request.getParameter("clave");
                 dao = new AdministradorDAO();
                 Administrador administradorLog = dao.login(usuarioLog, claveLog);
-                request.setAttribute("administradorLog", administradorLog);
-                sesion.setAttribute("usuarioLogueado", administradorLog);
+                try {
+                    if (administradorLog != null) {
+                    sesion.setAttribute("nombreUsuarioLogueado", administradorLog.getNombre());
+                    sesion.setAttribute("usuarioLogueado", administradorLog);
+                } else {
+                    sesion.setAttribute("nombreUsuarioLogueado", null);
+                    sesion.setAttribute("usuarioLogueado", null);
+                }
                 request.getRequestDispatcher("panelAdministrador.jsp").forward(request, response);
+                    
+                } catch (Exception e) {
+                    response.sendRedirect("index.jsp");
+                }
+                
+                break;
+            case "logout":
+                dao = new AdministradorDAO();
+                sesion.removeAttribute("usuarioActivo");
+                sesion.invalidate();
+                response.sendRedirect("SvActividad?accion=listarEnLogin");
+                // request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();

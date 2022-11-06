@@ -57,8 +57,6 @@ public class SvCliente extends HttpServlet {
                 c.setClave(clave);
                 r = dao.add(c);
                 if (r!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Agregado satisfactoriamente!");
                     request.getRequestDispatcher("SvCliente?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
@@ -88,9 +86,7 @@ public class SvCliente extends HttpServlet {
                 Cliente cli = new Cliente(idCliente1, nacimiento1, telefono1, telefonoE1, pago1, idActividad1, nombre1, apellido1, documento1, usuario1, clave1);
                 int respuesta = dao.update(cli);
                 if (respuesta!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Modificado satisfactoriamente!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    request.getRequestDispatcher("SvCliente?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al modificar, es posible que el usuario ya exista");
@@ -101,9 +97,7 @@ public class SvCliente extends HttpServlet {
                 int idCliente = parseInt(request.getParameter("idCliente"));
                 int res = dao.delete(idCliente);
                 if (res!=0) {
-                    request.setAttribute("config", "alert alert-warning");
-                    request.setAttribute("mensaje", "Se eliminó satisfactoriamente el cliente!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    request.getRequestDispatcher("SvCliente?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al eliminar");

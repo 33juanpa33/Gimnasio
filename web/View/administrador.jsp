@@ -18,7 +18,7 @@
                 <h1>Formulario de inscripción</h1>
             </div>
             <div class="row">
-                <h4 style="text-align:center">Cargar cliente</h4>
+                <h4 style="text-align:center">Cargar administrador</h4>
             </div>
             <form action="SvAdministrador" method="POST" class="row input-container">
                 <div class="col-md-6 col-sm-12">
@@ -63,7 +63,7 @@
 
             </form>
             <div class="col-xs-12">
-                <a href="SvAdministrador?accion=listar" class="btn-lrg submit-btn">Listar administradores</a>
+                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
             </div>
         </div>
         <footer class="mt-4">

@@ -122,7 +122,7 @@
 
             </form>
             <div class="col-xs-12">
-                <a href="SvCliente?accion=listar" class="btn-lrg submit-btn">Listar clientes</a>
+                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
             </div>
         </div>
                 <footer class="mt-4">

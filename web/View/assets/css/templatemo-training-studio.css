@@ -154,7 +154,17 @@ body {
 .section-heading h2 {
   font-size: 28px;
   font-weight: 800;
-  color: #232d39;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.section-heading h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-top: 0px;
@@ -284,8 +294,8 @@ header
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .header-area .main-nav .nav li a {
@@ -311,7 +321,7 @@ header
 .header-area .main-nav .nav li:last-child a {
   display: inline-block;
   font-size: 13px;
-  padding: 11px 17px;
+  padding: 9px 9px;
   background-color: #ed563b;
   color: #fff;
   text-align: center;
@@ -465,8 +475,8 @@ header
 
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 0px;
+    padding-right: 5px;
   }
   .header-area .main-nav:before {
     display: none;
@@ -800,12 +810,14 @@ Our Classes
   line-height: 90px;
   border-bottom: none;
 }
+/*
 #tabs ul .ui-tabs-active a {
   color: #ed563b;
 }
 #tabs ul .ui-tabs-active span {
   color: #1e1e1e;
 }
+*/
 .tabs-content {
   margin-left: 30px;
   text-align: left;
@@ -1246,4 +1258,19 @@ responsive
   .feature-item .right-content a.text-button {
     margin-left: 130px;
   }
+}
+
+#btnCerrarSesion {
+    display: inline-block;
+    font-size: 13px;
+    padding: 11px 17px;
+    background-color: #ed563b;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    transition: all .3s;
+    height: auto;
+    line-height: 20px;
 }

@@ -31,8 +31,7 @@
                             <img src="assets/images/line-dec.png" alt="">
                         </div>
                         <div class="section-heading dark-bg">
-                            <h2>Precios</h2>
-                            <a href="SvActividad?accion=listar">Mostrar Actividades</a>
+                            <a href="panelAdministrador.jsp" class="btn btn-primary btn-large">Panel Administrador</a>
                         </div>
                     </div>
                 </div>
@@ -63,10 +62,10 @@
                                                 <td class="day-time"> ${actividad.precio14Clases} </td>
                                                 <td class="day-time"> ${actividad.precioClasesLibre} </td>
                                                 <td>
-                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=editar&idActividad=${actividad.idActividad}">Modificar</a>
+                                                    <a class="btn btn-outline-warning btn-large" href="SvActividad?accion=editar&idActividad=${actividad.idActividad}">Modificar</a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-primary btn-block btn-large" href="SvActividad?accion=eliminar&idActividad=${actividad.idActividad}" onclick="javascript:return asegurar();">Eliminar</a>
+                                                    <a class="btn btn-outline-danger btn-large" href="SvActividad?accion=eliminar&idActividad=${actividad.idActividad}" onclick="javascript:return asegurar();">Eliminar</a>
                                                 </td>
                                             </tr>
                                         </c:if>

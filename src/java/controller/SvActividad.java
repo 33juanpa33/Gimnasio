@@ -53,8 +53,6 @@ public class SvActividad extends HttpServlet {
                 a.setDisponible(true);
                 r = dao.add(a);
                 if (r!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Actividad agregada satisfactoriamente!");
                     request.getRequestDispatcher("SvActividad?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
@@ -79,9 +77,7 @@ public class SvActividad extends HttpServlet {
                 Actividad act = new Actividad(idActividad1, nombre1, precio9Clases1, precio14Clases1, precioClasesLibre1, true);
                 int respuesta = dao.update(act);
                 if (respuesta!=0) {
-                    request.setAttribute("config", "alert alert-success");
-                    request.setAttribute("mensaje", "Actividad modificada satisfactoriamente!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    request.getRequestDispatcher("SvActividad?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al modificar la actividad");
@@ -92,9 +88,8 @@ public class SvActividad extends HttpServlet {
                 int idActividad = parseInt(request.getParameter("idActividad"));
                 int res = dao.delete(idActividad);
                 if (res!=0) {
-                    request.setAttribute("config", "alert alert-warning");
-                    request.setAttribute("mensaje", "Se eliminó satisfactoriamente la actividad!");
-                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                    
+                    request.getRequestDispatcher("SvActividad?accion=listar").forward(request, response);
                 } else {
                     request.setAttribute("config", "alert alert-danger");
                     request.setAttribute("mensaje", "Hubo un error al eliminar la actividad");

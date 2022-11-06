@@ -41,7 +41,7 @@
                     <div class="col-12">
                         <nav class="main-nav">
                             <!-- ***** Logo Start ***** -->
-                            <a href="index.html" class="logo">Training<em> Studio</em></a>
+                            <a href="index.jsp" class="logo">Training<em> Studio</em></a>
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
@@ -49,10 +49,10 @@
                             </ul>
                             <ul class="nav">
                                 <!-- <li class="scroll-to-section"><a href="#top" class="active">Home</a></li> -->
-                                <li class="main-button"><a href="#" onclick="cargarLogin()">Administrador Iniciar Sesión</a></li>
+                                <li class="main-button"><a href="#" onclick="cargarLogin()">Acceso Administrador</a></li>
                             </ul>
                             <ul class="nav">
-                                <li class="main-button"><a href="#" onclick="cargarLoginCliente()">Cliente Iniciar Sesión</a></li>
+                                <li class="main-button"><a href="#" onclick="cargarLoginCliente()">Acceso Cliente</a></li>
                             </ul>
                             <!-- ***** Menu End ***** -->
                         </nav>
@@ -71,8 +71,9 @@
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                         <div class="section-heading dark-bg">
-                            <h2>Nuestras <em>Actividades</em></h2>
+                            <<h1>BIENVENIDO!!!</h1>
                             <img src="assets/images/line-dec.png" alt="">
+                            <h2>Estas Son <em>Nuestras Actividades</em></h2>
                         </div>
                         <div class="section-heading dark-bg">
                             <h2>Precios</h2>

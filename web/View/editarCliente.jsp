@@ -89,7 +89,7 @@
 
             </form>
             <div class="row">
-                <a class="btn-lrg submit-btn" href="SvCliente?accion=listar">Listar clientes</a>
+                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
             </div>
         </div>
         <footer class="mt-4">
