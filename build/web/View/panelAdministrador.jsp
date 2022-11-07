@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-12">
                         <nav class="main-nav">
-                            <a href="index.jsp" class="logo">Panel<em> Administrador</em></a>
+                            <a href="SvActividad?accion=listarEnLogin" class="logo">Panel<em> Administrador</em></a>
                             <form id="contact" action="SvAdministrador" method="POST">
                                 <ul class="nav">
                                     <li class="main-button"><button  id="btnCerrarSesion"type="submit" value="logout" name="accion">Cerrar Sesión</button></li>

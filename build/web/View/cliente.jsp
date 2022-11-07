@@ -3,7 +3,8 @@
     Created on : 8 oct. 2022, 15:25:01
     Author     : Juan Pablo Alfonso
 --%>
-
+<%@page import="model.Administrador"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.Date"%>
 <%@page import="model.Cliente"%>
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,7 +24,17 @@
     </head>
     <body>
 
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
+            if (adminActivo == null) {
+                response.sendRedirect("index.jsp");
+            } else {
+
+        %>
         <div class="container">
             <div class="row">
                 <h1>Formulario de inscripción</h1>
@@ -96,7 +107,13 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
-                        <input type="number" name="idActividad"  required />
+                        <select name="idActividad" id="membership"  required>
+                            <c:forEach var="actividad" items="${Actividades}">
+                                <c:if test="${actividad.disponible}" >
+                                    <option value="${actividad.idActividad}" type="number">${actividad.nombre}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
                         <label>Actividad</label> 
                     </div>
                 </div>
@@ -125,13 +142,13 @@
                 <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
             </div>
         </div>
-                <footer class="mt-4">
+        <footer class="mt-4">
             <p class="mb-0 w-100 text-center col-12">
                 &copy; ISFDyT N°166 2022 
 
                 - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
             </p>
         </footer>
-
+        <% }%>
     </body>
 </html>

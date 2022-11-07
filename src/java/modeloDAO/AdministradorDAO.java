@@ -91,7 +91,7 @@ public class AdministradorDAO implements IAdministradorDAO {
             ps.setString(4, a.getDocumento());
             ps.setString(5, a.getUsuario());
             ps.setString(6, a.getClave());
-            
+            ps.setInt(7, a.getIdAdministrador());
             resultado = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);

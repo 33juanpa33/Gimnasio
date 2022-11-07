@@ -41,7 +41,7 @@
                     <div class="col-12">
                         <nav class="main-nav">
                             <!-- ***** Logo Start ***** -->
-                            <a href="index.jsp" class="logo">Training<em> Studio</em></a>
+                            <a href="SvActividad?accion=listarEnLogin" class="logo">Training<em> Studio</em></a>
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">

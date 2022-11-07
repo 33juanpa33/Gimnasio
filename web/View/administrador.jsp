@@ -3,6 +3,7 @@
     Created on : 3 nov. 2022, 23:53:38
     Author     : JuanPa
 --%>
+<%@page import="model.Administrador"%>
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,17 @@
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
+            if (adminActivo == null) {
+                response.sendRedirect("index.jsp");
+            } else {
+                
+        %>
         <div class="container">
             <div class="row">
                 <h1>Formulario de inscripción</h1>
@@ -73,5 +85,6 @@
                 - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
             </p>
         </footer>
+        <% } %>
     </body>
 </html>

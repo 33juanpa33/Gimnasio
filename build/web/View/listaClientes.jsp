@@ -3,6 +3,7 @@
     Created on : 11 oct. 2022, 22:49:34
     Author     : Juan Pablo Alfonso
 --%>
+<%@page import="model.Administrador"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <%@page import="model.Actividad"%>
@@ -19,16 +20,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <%
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-            response.setHeader("Pragma", "no-cache");
-            response.setDateHeader("Expires", 0);
-        %>
         <title>Lista de Clientes</title>
 
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
+            if (adminActivo == null) {
+                response.sendRedirect("index.jsp");
+            } else {
+
+        %>
         <div class="container">
             <div class="row">
                 <h1>Lista de Clientes</h1>
@@ -137,5 +144,6 @@
                 return confirm("¿Seguro que desea Eliminar?");
             }
         </script>
+        <% }%>
     </body>
 </html>

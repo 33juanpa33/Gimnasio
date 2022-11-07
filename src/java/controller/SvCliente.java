@@ -10,17 +10,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Actividad;
 import model.Cliente;
+import modeloDAO.ActividadDAO;
 import modeloDAO.ClienteDAO;
 
 @WebServlet(name = "SvCliente", urlPatterns = {"/View/SvCliente"})
 public class SvCliente extends HttpServlet {
 
     private ClienteDAO dao;
+    private ActividadDAO daoAct;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         List<Cliente> clientes = new ArrayList<>();
+        List<Actividad> actividades = new ArrayList<>();
         switch (accion) {
             case "listar":
                 dao = new ClienteDAO();
@@ -29,6 +33,9 @@ public class SvCliente extends HttpServlet {
                 request.getRequestDispatcher("/View/listaClientes.jsp").forward(request, response);
                 break;
             case "nuevo":
+                daoAct = new ActividadDAO();
+                actividades = daoAct.getActividades();
+                request.setAttribute("Actividades", actividades);
                 request.getRequestDispatcher("cliente.jsp").forward(request, response);
                 break;
             case "agregar":
@@ -69,6 +76,9 @@ public class SvCliente extends HttpServlet {
                 dao = new ClienteDAO();
                 Cliente cl = dao.getId(id);
                 request.setAttribute("cliente", cl);
+                daoAct = new ActividadDAO();
+                actividades = daoAct.getActividades();
+                request.setAttribute("Actividades", actividades);
                 request.getRequestDispatcher("editarCliente.jsp").forward(request, response);
                 break;
             case "actualizar":

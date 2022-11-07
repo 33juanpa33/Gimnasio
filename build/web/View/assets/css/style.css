@@ -63,7 +63,7 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 
 .styled-input label {
     color: #999;
-    padding: 1.3rem 29px 1rem 28px;
+    padding: 0.3rem 29px 1rem 28px;
     position: absolute;
     top: 10px;
     left: 0;
@@ -79,6 +79,16 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 
 input,
 textarea {
+    padding: 30px;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    background-color: #2d2d2d;
+    color: white;
+    border-radius: 4px;
+}
+
+#membership {
     padding: 30px;
     border: 0;
     width: 100%;

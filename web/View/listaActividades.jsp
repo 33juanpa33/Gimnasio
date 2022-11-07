@@ -4,6 +4,7 @@
     Author     : JuanPa
 --%>
 
+<%@page import="model.Administrador"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +23,17 @@
 
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
+            if (adminActivo == null) {
+                response.sendRedirect("index.jsp");
+            } else {
+
+        %>
         <section class="section" id="schedule">
             <div class="container">
                 <div class="row">
@@ -163,5 +175,6 @@
 
         <!-- Global Init -->
         <script src="assets/js/custom.js"></script>
+        <% }%>
     </body>
 </html>

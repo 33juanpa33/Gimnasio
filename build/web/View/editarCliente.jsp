@@ -4,6 +4,10 @@
     Author     : JuanPa
 --%>
 
+<%@page import="model.Administrador"%>
+<%@page import="model.Actividad"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Cliente"%>
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +18,21 @@
         <link rel="stylesheet" media="all" href="assets/css/style.css" />
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
+            if (adminActivo == null) {
+                response.sendRedirect("index.jsp");
+            } else {
+                
+        %>
+        <%
+            Cliente cli = (Cliente) request.getAttribute("cliente");
+            List<Actividad> listaAct = (List) request.getAttribute("Actividades");
+        %>
         <div class="container">
             <div class="row">
                 <h1>Formulario de actualización</h1>
@@ -77,12 +96,28 @@
                         <label>Ultimo Pago</label> 
                     </div>
                 </div>
+                <%-- 
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
                         <input type="number" name="idActividad" value="${cliente.idActividad}" required />
                         <label>Actividad</label> 
                     </div>
                 </div>
+                --%>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input" style="float:right;">
+                        <select name="idActividad" id="membership"  required>
+                            <%for (Actividad actividad : listaAct) {%>
+                            <option value="<%=actividad.getIdActividad()%>" type="number"
+                                    <%if (actividad.getIdActividad() == cli.getIdActividad()) {%> <%="selected"%> <%}%> > <%=actividad.getNombre()%></option>
+                            <% }%>
+                        </select>
+                        <label>Actividad</label>
+                    </div>
+                </div>
+
+
+
                 <div class="col-xs-12">
                     <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
                 </div>
@@ -99,5 +134,6 @@
                 - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
             </p>
         </footer>
+                        <% } %>
     </body>
 </html>
