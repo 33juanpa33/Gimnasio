@@ -118,7 +118,7 @@ public class SvAdministrador extends HttpServlet {
                 break;
             case "logout":
                 dao = new AdministradorDAO();
-                sesion.removeAttribute("usuarioActivo");
+                sesion.removeAttribute("usuarioLogueado");
                 sesion.invalidate();
                 response.sendRedirect("SvActividad?accion=listarEnLogin");
                 // request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -32,7 +32,7 @@
             Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
             // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
             if (adminActivo == null) {
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("SvActividad?accion=listarEnLogin");
             } else {
 
         %>

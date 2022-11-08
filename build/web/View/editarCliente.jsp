@@ -23,14 +23,15 @@
 
             HttpSession sesion = request.getSession();
             Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            Cliente cliActivo = (Cliente) sesion.getAttribute("clienteLogueado");
             // String usu = (String) sesion.getAttribute("nombreUsuarioLogueado");
-            if (adminActivo == null) {
-                response.sendRedirect("index.jsp");
-            } else {
-                
+            try {
+                if (adminActivo == null && cliActivo == null) {
+                    response.sendRedirect("index.jsp");
+                } else {
+
         %>
-        <%
-            Cliente cli = (Cliente) request.getAttribute("cliente");
+        <%            Cliente cli = (Cliente) request.getAttribute("cliente");
             List<Actividad> listaAct = (List) request.getAttribute("Actividades");
         %>
         <div class="container">
@@ -116,24 +117,36 @@
                     </div>
                 </div>
 
-
-
+                <% if (adminActivo == null) {%>
                 <div class="col-xs-12">
-                    <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
+                    <button type="submit" value="actualizarDesdeCliente" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
                 </div>
-
             </form>
             <div class="row">
-                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
+                <a href="panelCliente.jsp" class="btn-lrg submit-btn">Panel Cliente</a>
             </div>
+            <% } else {%>
+            <div class="col-xs-12">
+                <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
+            </div>
+        </form>
+        <div class="row">
+            <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
         </div>
-        <footer class="mt-4">
-            <p class="mb-0 w-100 text-center col-12">
-                &copy; ISFDyT N°166 2022 
+        <% }%>
 
-                - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
-            </p>
-        </footer>
-                        <% } %>
-    </body>
+    </div>
+    <footer class="mt-4">
+        <p class="mb-0 w-100 text-center col-12">
+            &copy; ISFDyT N°166 2022 
+
+            - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
+        </p>
+    </footer>
+    <% }
+        } catch (Exception e) {
+            response.sendRedirect("SvActividad?accion=listarEnLogin");
+        }
+    %>
+</body>
 </html>

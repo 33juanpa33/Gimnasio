@@ -10,16 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>Mensaje error</title>
     </head>
     <body>
         <div class="container m-4">
             <div class="${config}" role="alert">
                 ${mensaje}!
             </div>
-            <a href="SvCliente?accion=listar">Listar los clientes</a>
+            <a href="SvActividad?accion=listarEnLogin">Volver al inicio</a>
             <br>
-            <a href="SvActividad?accion=listar">Listar las actividades</a>
         </div>
     </body>
 </html>

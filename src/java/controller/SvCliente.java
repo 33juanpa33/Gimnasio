@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Actividad;
 import model.Cliente;
 import modeloDAO.ActividadDAO;
@@ -22,6 +23,7 @@ public class SvCliente extends HttpServlet {
     private ActividadDAO daoAct;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sesion = request.getSession();
         String accion = request.getParameter("accion");
         List<Cliente> clientes = new ArrayList<>();
         List<Actividad> actividades = new ArrayList<>();
@@ -103,6 +105,28 @@ public class SvCliente extends HttpServlet {
                     request.getRequestDispatcher("mensaje.jsp").forward(request, response);
                 }
                 break;
+            case "actualizarDesdeCliente":
+                Date nacimiento2 = Date.valueOf(request.getParameter("nacimiento"));
+                String telefono2 = request.getParameter("telefono");
+                String telefonoE2 = request.getParameter("telefonoE");
+                Date pago2 = Date.valueOf(request.getParameter("pago"));
+                int idActividad2 = parseInt(request.getParameter("idActividad"));
+                String nombre2 = request.getParameter("nombre");
+                String apellido2 = request.getParameter("apellido");
+                String documento2 = request.getParameter("documento");
+                String usuario2 = request.getParameter("usuario");
+                String clave2 = request.getParameter("clave");
+                int idCliente2 = parseInt(request.getParameter("idCliente"));
+                Cliente cli2 = new Cliente(idCliente2, nacimiento2, telefono2, telefonoE2, pago2, idActividad2, nombre2, apellido2, documento2, usuario2, clave2);
+                int respuesta2 = dao.update(cli2);
+                if (respuesta2!=0) {
+                    request.getRequestDispatcher("panelCliente.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("config", "alert alert-danger");
+                    request.setAttribute("mensaje", "Hubo un error al modificar, es posible que el usuario ya exista");
+                    request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                }
+                break;
             case "eliminar":
                 int idCliente = parseInt(request.getParameter("idCliente"));
                 int res = dao.delete(idCliente);
@@ -119,8 +143,25 @@ public class SvCliente extends HttpServlet {
                 String claveLog = request.getParameter("clave");
                 dao = new ClienteDAO();
                 Cliente clienteLog = dao.login(usuarioLog, claveLog);
-                request.setAttribute("clienteLog", clienteLog);
+                try {
+                    if (clienteLog != null) {
+                    sesion.setAttribute("clienteLogueado", clienteLog);
+                } else {
+                    sesion.setAttribute("clienteLogueado", null);
+                }
                 request.getRequestDispatcher("panelCliente.jsp").forward(request, response);
+                    
+                } catch (Exception e) {
+                    response.sendRedirect("SvActividad?accion=listarEnLogin");
+                }
+                
+                break;
+            case "logout":
+                dao = new ClienteDAO();
+                sesion.removeAttribute("clienteLogueado");
+                sesion.invalidate();
+                response.sendRedirect("SvActividad?accion=listarEnLogin");
+                // request.getRequestDispatcher("index.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();
