@@ -89,61 +89,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Horarios -->
-
-        <section class="section" id="schedule">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 offset-lg-3">
-                        <div class="section-heading dark-bg">
-                            <h2><em>Horarios</em></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <!--
-                    <div class="col-lg-12">
-                        <div class="filters">
-                            <ul class="schedule-filter">
-                                <li class="active" data-tsfilter="monday">Monday</li>
-                                <li data-tsfilter="tuesday">Tuesday</li>
-                                <li data-tsfilter="wednesday">Wednesday</li>
-                                <li data-tsfilter="thursday">Thursday</li>
-                                <li data-tsfilter="friday">Friday</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    -->
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="schedule-table filtering">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th hidden="hidden">Id</th>
-                                        <td class="day-time">Descripción</td>
-                                        <td class="day-time">Lugar</td>
-                                        <td class="day-time">Horarios</td>
-                                        <td class="day-time">Cupo</td>
-                                        <td>Acción</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="day-time">Fitness Class</td>
-                                        <td class="monday ts-item show" data-tsmeta="monday">10:00AM - 11:30AM</td>
-                                        <td class="tuesday ts-item" data-tsmeta="tuesday">2:00PM - 3:30PM</td>
-                                        <td>William G. Stewart</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <footer class="mt-4">
             <p class="mb-0 w-100 text-center col-12">
                 &copy; ISFDyT N°166 2022 
