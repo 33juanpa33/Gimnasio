@@ -117,29 +117,13 @@
                         <label>Actividad</label> 
                     </div>
                 </div>
-                <%--                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="styled-input">
-                                        <input type="checkbox" name="pago" required />
-                                        <label>Mes pago</label> 
-                                    </div>
-                                </div>
-                --%>                
-                <%--
-                                <div class="col-xs-12">
-                                    <div class="styled-input wide">
-                                        <textarea required></textarea>
-                                        <label>Message</label>
-                                    </div>
-                                </div>
-                --%>
                 <div class="col-xs-12">
-                    <button type="submit" value="agregar" name="accion" class="btn-lrg submit-btn">Cargar cliente</button>
+                    <button type="submit" value="agregar" name="accion" class="btn btn-primary btn-large">Cargar cliente</button>
                 </div>
 
             </form>
             <div class="col-xs-12">
-                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
+                <a href="panelAdministrador.jsp" class="btn btn-primary btn-large">Panel Administrador</a>
             </div>
         </div>
         <footer class="mt-4">

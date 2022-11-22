@@ -97,14 +97,6 @@
                         <label>Ultimo Pago</label> 
                     </div>
                 </div>
-                <%-- 
-                <div class="col-md-6 col-sm-12">
-                    <div class="styled-input" style="float:right;">
-                        <input type="number" name="idActividad" value="${cliente.idActividad}" required />
-                        <label>Actividad</label> 
-                    </div>
-                </div>
-                --%>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input" style="float:right;">
                         <select name="idActividad" id="membership"  required>
@@ -119,19 +111,19 @@
 
                 <% if (adminActivo == null) {%>
                 <div class="col-xs-12">
-                    <button type="submit" value="actualizarDesdeCliente" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
+                    <button type="submit" value="actualizarDesdeCliente" name="accion" class="btn btn-primary btn-large">Modificar cliente</button>
                 </div>
             </form>
             <div class="row">
-                <a href="panelCliente.jsp" class="btn-lrg submit-btn">Panel Cliente</a>
+                <a href="panelCliente.jsp" class="btn btn-primary btn-large">Panel Cliente</a>
             </div>
             <% } else {%>
             <div class="col-xs-12">
-                <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar cliente</button>
+                <button type="submit" value="actualizar" name="accion" class="btn btn-primary btn-large">Modificar cliente</button>
             </div>
         </form>
         <div class="row">
-            <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
+            <a href="panelAdministrador.jsp" class="btn btn-primary btn-large">Panel Administrador</a>
         </div>
         <% }%>
 

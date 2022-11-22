@@ -30,8 +30,11 @@ public class SvCliente extends HttpServlet {
         switch (accion) {
             case "listar":
                 dao = new ClienteDAO();
+                daoAct = new ActividadDAO();
                 clientes = dao.getClientes();
+                actividades = daoAct.getActividades();
                 request.setAttribute("Clientes", clientes);
+                request.setAttribute("Actividades", actividades);
                 request.getRequestDispatcher("/View/listaClientes.jsp").forward(request, response);
                 break;
             case "nuevo":

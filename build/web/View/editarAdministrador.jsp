@@ -71,11 +71,11 @@
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar administrador</button>
+                    <button type="submit" value="actualizar" name="accion" class="btn btn-primary btn-large">Modificar administrador</button>
                 </div>
             </form>
             <div class="row">
-                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
+                <a href="panelAdministrador.jsp" class="btn btn-primary btn-large">Panel Administrador</a>
             </div>
         </div>
         <footer class="row mt-4">

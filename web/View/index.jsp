@@ -39,7 +39,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <nav class="main-nav">
+                        <nav class="main-nav" style="min-width: max-content;">
                             <!-- ***** Logo Start ***** -->
                             <a href="SvActividad?accion=listarEnLogin" class="logo">Training<em> Studio</em></a>
                             <!-- ***** Logo End ***** -->
@@ -48,7 +48,6 @@
                                 <li class="main-button"><a href="SvActividad?accion=listarEnLogin" href="#schedule">Ver Actividades</a></li>
                             </ul>
                             <ul class="nav">
-                                <!-- <li class="scroll-to-section"><a href="#top" class="active">Home</a></li> -->
                                 <li class="main-button"><a href="#" onclick="cargarLogin()">Acceso Administrador</a></li>
                             </ul>
                             <ul class="nav">
@@ -60,11 +59,8 @@
                 </div>
             </div>
         </header>
-        <!-- ***** Header Area End ***** -->
 
         <section id="contenidoDinamico"></section>
-        <!-- ***** Main Banner Area Start ***** -->
-        
         
         <section class="section" id="schedule">
             <div class="container">
@@ -115,7 +111,6 @@
             </div>
         </section>
 
-        <!-- Horarios -->
 
         <footer class="mt-4">
             <p class="mb-0 w-100 text-center col-12">

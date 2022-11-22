@@ -60,12 +60,12 @@
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <button type="submit" value="actualizar" name="accion" class="btn-lrg submit-btn">Modificar actividad</button>
+                    <button type="submit" value="actualizar" name="accion" class="btn btn-primary btn-large">Modificar actividad</button>
                 </div>
 
             </form>
             <div class="col-xs-12">
-                <a href="panelAdministrador.jsp" class="btn-lrg submit-btn">Panel Administrador</a>
+                <a href="panelAdministrador.jsp" class="btn btn-primary btn-large">Panel Administrador</a>
             </div>
         </div>
         <footer class="mt-4">
