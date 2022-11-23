@@ -4,6 +4,8 @@
     Author     : JuanPa
 --%>
 
+<%@page import="model.Cliente"%>
+<%@page import="model.Administrador"%>
 <% // @page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -22,6 +24,12 @@
         <link rel="stylesheet" href="assets/css/templatemo-training-studio.css">
     </head>
     <body>
+        <%
+            HttpSession sesion = request.getSession();
+            Administrador adminActivo = (Administrador) sesion.getAttribute("usuarioLogueado");
+            Cliente cliActivo = (Cliente) sesion.getAttribute("clienteLogueado");
+            try {
+        %>
         <!-- ***** Preloader Start ***** -->
         <div id="js-preloader" class="js-preloader">
             <div class="preloader-inner">
@@ -44,15 +52,51 @@
                             <a href="SvActividad?accion=listarEnLogin" class="logo">Training<em> Studio</em></a>
                             <!-- ***** Logo End ***** -->
                             <!-- ***** Menu Start ***** -->
-                            <ul class="nav">
-                                <li class="main-button"><a href="SvActividad?accion=listarEnLogin" href="#schedule">Ver Actividades</a></li>
-                            </ul>
+
+
+                            <%
+                                if (adminActivo == null && cliActivo == null) {
+                            %>
+
                             <ul class="nav">
                                 <li class="main-button"><a href="#" onclick="cargarLogin()">Acceso Administrador</a></li>
                             </ul>
                             <ul class="nav">
                                 <li class="main-button"><a href="#" onclick="cargarLoginCliente()">Acceso Cliente</a></li>
                             </ul>
+                            <ul class="nav">
+                                <li class="main-button"><a href="SvActividad?accion=listarEnLogin" href="#schedule">Ver Actividades</a></li>
+                            </ul>
+
+                            <%
+                            } else if (adminActivo != null) {
+                            %>
+
+                            <form id="contact" action="SvAdministrador" method="POST">
+                                <ul class="nav">
+                                    <li class="main-button"><button  id="btnCerrarSesion"type="submit" value="logout" name="accion"><%=adminActivo.getNombre() + " - "%> Cerrar Sesión</button></li>
+                                </ul>
+                            </form>
+                            <ul class="nav">
+                                <li class="main-button"><a href="panelAdministrador.jsp">Panel Administrador</a></li>
+                            </ul>
+
+                            <%
+                            } else if (cliActivo != null) {
+                            %>
+
+                            <form id="contact" action="SvCliente" method="POST">
+                                <ul class="nav">
+                                    <li class="main-button"><button  id="btnCerrarSesion"type="submit" value="logout" name="accion"><%=cliActivo.getNombre() + " - "%> Cerrar Sesión</button></li>
+                                </ul>
+                            </form>
+                            <ul class="nav">
+                                <li class="main-button"><a href="panelCliente.jsp">Panel Cliente</a></li>
+                            </ul>
+
+                            <%
+                                }
+                            %>
                             <!-- ***** Menu End ***** -->
                         </nav>
                     </div>
@@ -61,7 +105,7 @@
         </header>
 
         <section id="contenidoDinamico"></section>
-        
+
         <section class="section" id="schedule">
             <div class="container">
                 <div class="row">
@@ -119,7 +163,7 @@
                 - "Mi gimnasio" by <a rel="nofollow" href="https://portfoliojuanpabloalfonso.web.app/" class="tm-text-link"> Alfonso Juan Pablo </a>
             </p>
         </footer>
-        
+
         <script src="assets/js/indexDinamico.js"></script>
         <!-- jQuery -->
         <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -138,5 +182,11 @@
 
         <!-- Global Init -->
         <script src="assets/js/custom.js"></script>
+
+        <%
+            } catch (Exception e) {
+                response.sendRedirect("index.jsp");
+            }
+        %>
     </body>
 </html>

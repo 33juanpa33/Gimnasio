@@ -31,7 +31,8 @@
                 } else {
 
         %>
-        <%            Cliente cli = (Cliente) request.getAttribute("cliente");
+        <%
+            Cliente cli = (Cliente) request.getAttribute("cliente");
             List<Actividad> listaAct = (List) request.getAttribute("Actividades");
         %>
         <div class="container">
@@ -93,7 +94,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input">
-                        <input type="date" class="nacimiento" name="pago" value="${cliente.pago}" required <% if (adminActivo == null) {%> <%="readonly" %> <%}%>/>
+                        <input type="date" class="nacimiento" name="pago" value="${cliente.pago}" required <% if (adminActivo == null) {%> <%="readonly"%> <%}%>/>
                         <label>Ultimo Pago</label> 
                     </div>
                 </div>
